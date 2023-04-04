@@ -2,6 +2,8 @@ import { Badge, Layout, Menu } from "antd";
 import { ShoppingCartOutlined } from "@ant-design/icons";
 import { useNavigate } from "react-router-dom";
 
+import styles from "./AppHeader.module.css";
+
 const { Header } = Layout;
 
 const AppHeader = () => {
@@ -15,10 +17,13 @@ const AppHeader = () => {
       label: (
         <>
           Cart{" "}
-          <Badge count={0} size="small" offset={[8, 0]}>
-            <ShoppingCartOutlined
-              style={{ fontSize: 16, color: "rgba(255, 255, 255, 0.65)" }}
-            />
+          <Badge
+            count={0}
+            size="small"
+            offset={[8, 0]}
+            className={styles.ant_badge_customized}
+          >
+            <ShoppingCartOutlined style={{ fontSize: 16 }} />
           </Badge>
         </>
       ),
