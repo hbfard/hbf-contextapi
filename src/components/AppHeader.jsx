@@ -1,4 +1,5 @@
-import { Layout, Menu } from "antd";
+import { Badge, Layout, Menu } from "antd";
+import { ShoppingCartOutlined } from "@ant-design/icons";
 import { useNavigate } from "react-router-dom";
 
 const { Header } = Layout;
@@ -8,13 +9,20 @@ const AppHeader = () => {
     {
       label: "Products",
       key: "products",
-      icon: "",
       target: "/",
     },
     {
-      label: "Cart",
+      label: (
+        <>
+          Cart{" "}
+          <Badge count={0} size="small" offset={[8, 0]}>
+            <ShoppingCartOutlined
+              style={{ fontSize: 16, color: "rgba(255, 255, 255, 0.65)" }}
+            />
+          </Badge>
+        </>
+      ),
       key: "card",
-      icon: "",
       target: "/cart",
     },
   ];
