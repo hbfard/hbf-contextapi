@@ -4,13 +4,10 @@ import { Route, Routes } from "react-router-dom";
 import Cart from "./Cart";
 import Products from "./Products";
 import AppBreadcrumb from "./AppBreadcrumb";
-import { useState } from "react";
 
 const { Content } = Layout;
 
-const AppContent = ({ productsData }) => {
-  const [cart, setCart] = useState([]);
-
+const AppContent = ({ productsData, cart, setCart }) => {
   return (
     <Content
       className="site-layout"
@@ -26,25 +23,23 @@ const AppContent = ({ productsData }) => {
           background: "rgba(255, 255, 255)",
         }}
       >
-        <Row gutter={[16, 16]}>
-          <Routes>
-            <Route
-              path="/"
-              element={
-                <Products
-                  productsData={productsData}
-                  cart={cart}
-                  setCart={setCart}
-                />
-              }
-              exact
-            />
-            <Route
-              path="/cart"
-              element={<Cart cart={cart} setCart={setCart} />}
-            />
-          </Routes>
-        </Row>
+        <Routes>
+          <Route
+            path="/"
+            element={
+              <Products
+                productsData={productsData}
+                cart={cart}
+                setCart={setCart}
+              />
+            }
+            exact
+          />
+          <Route
+            path="/cart"
+            element={<Cart cart={cart} setCart={setCart} />}
+          />
+        </Routes>
       </div>
     </Content>
   );

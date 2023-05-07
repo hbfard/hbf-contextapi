@@ -6,7 +6,7 @@ import styles from "./AppHeader.module.css";
 
 const { Header } = Layout;
 
-const AppHeader = () => {
+const AppHeader = ({ cart }) => {
   const items = [
     {
       label: "Products",
@@ -18,7 +18,7 @@ const AppHeader = () => {
         <>
           Cart{" "}
           <Badge
-            count={0}
+            count={cart?.length || 0}
             size="small"
             offset={[8, 0]}
             className={styles.ant_badge_customized}
