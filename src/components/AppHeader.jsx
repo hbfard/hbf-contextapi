@@ -1,12 +1,17 @@
 import { Badge, Layout, Menu } from "antd";
 import { ShoppingCartOutlined } from "@ant-design/icons";
+import { useContext } from "react";
 import { useNavigate } from "react-router-dom";
 
 import styles from "./AppHeader.module.css";
 
+import { CartContext } from "../contexts/CartContextWrapper";
+
 const { Header } = Layout;
 
-const AppHeader = ({ cart }) => {
+const AppHeader = () => {
+  const { cart } = useContext(CartContext);
+
   const items = [
     {
       label: "Products",

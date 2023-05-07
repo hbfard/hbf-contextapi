@@ -1,7 +1,12 @@
 import { Button, Card, Col } from "antd";
+import { useContext } from "react";
+
+import { CartContext } from "../contexts/CartContextWrapper";
+
 const { Meta } = Card;
 
-const Product = ({ productData, cart, setCart }) => {
+const Product = ({ productData }) => {
+  const { cart, setCart } = useContext(CartContext);
   const { title, image, price } = productData;
 
   const handleAddClicked = () => {

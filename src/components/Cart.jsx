@@ -1,11 +1,14 @@
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
+import { Col, Divider, Result, Row, Typography } from "antd";
 
 import Product from "./Product";
-import { Col, Divider, Result, Row, Typography } from "antd";
+
+import { CartContext } from "../contexts/CartContextWrapper";
 
 const { Text } = Typography;
 
-const Cart = ({ cart, setCart }) => {
+const Cart = () => {
+  const { cart, setCart } = useContext(CartContext);
   const [totalPrice, setTotalPrice] = useState(0);
 
   useEffect(() => {
