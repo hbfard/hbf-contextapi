@@ -9,14 +9,12 @@ import { getProduct } from "./services/Products";
 
 const products = [...Array(10)].map(() => getProduct());
 
-console.log(products);
-
 function App() {
   return (
     <Layout>
       <BrowserRouter>
         <AppHeader />
-        <AppContent />
+        <AppContent productsData={products} />
         <AppFooter />
       </BrowserRouter>
     </Layout>
