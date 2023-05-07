@@ -1,4 +1,4 @@
-import { Layout, Row } from "antd";
+import { Layout } from "antd";
 import { Route, Routes } from "react-router-dom";
 
 import Cart from "./Cart";
