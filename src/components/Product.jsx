@@ -6,15 +6,15 @@ import { CartContext } from "../contexts/CartContextWrapper";
 const { Meta } = Card;
 
 const Product = ({ productData }) => {
-  const { cart, setCart } = useContext(CartContext);
+  const { cart, dispatch } = useContext(CartContext);
   const { title, image, price } = productData;
 
   const handleAddClicked = () => {
-    setCart([...cart, productData]);
+    dispatch({ type: "add_to_cart", payload: productData });
   };
 
   const handleRemoveClicked = () => {
-    setCart(cart.filter((item) => item.id !== productData.id));
+    dispatch({ type: "remove_from_cart", payload: productData });
   };
 
   return (

@@ -8,7 +8,7 @@ import { CartContext } from "../contexts/CartContextWrapper";
 const { Text } = Typography;
 
 const Cart = () => {
-  const { cart, setCart } = useContext(CartContext);
+  const { cart } = useContext(CartContext);
   const [totalPrice, setTotalPrice] = useState(0);
 
   useEffect(() => {
@@ -25,12 +25,7 @@ const Cart = () => {
         <>
           <Row gutter={[16, 16]}>
             {cart.map((productItem) => (
-              <Product
-                productData={productItem}
-                cart={cart}
-                setCart={setCart}
-                key={productItem.id}
-              />
+              <Product productData={productItem} key={productItem.id} />
             ))}
           </Row>
           <Divider
